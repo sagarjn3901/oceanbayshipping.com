@@ -3,257 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Company LLP | Shipping & Logistics</title>
-<meta name="description" content="Sea freight, air freight, customs clearance and warehousing, door to door.">
+<title>Oceanbay Shipping and Logistics LLP</title>
+<meta name="description" content="Oceanbay Shipping and Logistics LLP. Shipping made simple and reliable.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --sea:#08202e; --deep:#0d3047; --rust:#e4572e; --sand:#f2ece1; --foam:#ffffff; --mist:#9db4c2;
-  --head:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
-  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--sea);color:var(--foam);line-height:1.6;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1;letter-spacing:.01em}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#000;color:#fff;font-family:"Montserrat",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 
-/* NAV */
-nav{position:fixed;inset:0 0 auto 0;z-index:20;transition:background .3s,backdrop-filter .3s}
-nav.solid{background:rgba(8,32,46,.85);backdrop-filter:blur(10px)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:var(--head);font-size:1.6rem;display:flex;align-items:center;gap:10px}
-.logo i{width:22px;height:22px;background:var(--rust);display:inline-block;clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%)}
-.links{display:flex;gap:28px;align-items:center;font-size:.95rem}
-.links a:hover{color:var(--rust)}
-.btn{display:inline-block;background:var(--rust);color:#fff;padding:14px 26px;font-weight:500;border-radius:2px;transition:transform .2s,background .2s;border:0;cursor:pointer;font:inherit;font-weight:500}
-.btn:hover{transform:translateY(-3px);background:#f0683f}
-.btn.ghost{background:transparent;border:1.5px solid var(--mist)}
-.btn.ghost:hover{border-color:var(--rust);background:transparent}
+  /* ---------- HERO ---------- */
+  .hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:radial-gradient(ellipse at 35% 45%,#1f3d50 0%,#11283a 55%,#0a1822 100%)}
 
-/* HERO */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;
-  background:radial-gradient(900px 500px at 80% 30%,#124666 0%,transparent 70%),var(--sea)}
-.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(3.4rem,9vw,7.4rem);text-transform:uppercase}
-.hero h1 span{display:block;overflow:hidden}
-.hero h1 span b{display:block;font-weight:700;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
-.hero h1 span:nth-child(2) b{animation-delay:.15s;color:var(--rust)}
-.hero h1 span:nth-child(3) b{animation-delay:.3s}
-@keyframes rise{to{transform:none}}
-.hero p{max-width:460px;color:var(--mist);margin:28px 0 36px;opacity:0;animation:fade .8s .8s forwards}
-.hero .cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade .8s 1s forwards}
-@keyframes fade{to{opacity:1}}
+  /* moving sea texture (flows opposite to the ship's heading) */
+  .sea{position:absolute;inset:-60%;transform:rotate(8deg);pointer-events:none}
+  .sea::before,.sea::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.010 0.040' numOctaves='3' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  .9 0 0 0 -.42'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");background-size:600px 600px;opacity:.22;animation:flow 14s linear infinite}
+  .sea::after{background-size:380px 380px;opacity:.14;animation-duration:9s;transform:scaleY(-1)}
+  @keyframes flow{to{background-position:600px 0}}
 
-/* ROUTE MAP */
-.map{width:100%;height:auto}
-.map .route{fill:none;stroke:var(--mist);stroke-width:1.5;stroke-dasharray:6 8;animation:dash 30s linear infinite}
-.map .route.air{stroke:var(--rust)}
-@keyframes dash{to{stroke-dashoffset:-400}}
-.map .port{fill:var(--foam)}
-.map .pulse{fill:none;stroke:var(--rust);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
-.map .pulse:nth-of-type(2n){animation-delay:.8s}
-@keyframes ping{from{transform:scale(.4);opacity:1}to{transform:scale(3);opacity:0}}
-.map text{fill:var(--mist);font:500 12px var(--body)}
-.map .land{fill:#103a55}
+  /* ship */
+  .ship-wrap{position:absolute;left:50%;top:54%;width:max(132vw,1000px);aspect-ratio:1600/360;transform:translate(-50%,-50%) rotate(8deg)}
+  .ship-sway{position:relative;width:100%;height:100%;animation:sway 9s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-0.6%,0.8%) rotate(-.35deg)}}
+  .ship-wrap svg.ship{position:relative;width:100%;height:100%;display:block;z-index:2;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
 
-/* STATS */
-.stats{background:var(--rust);color:#fff}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:44px;padding-bottom:44px}
-.stats strong{font-family:var(--head);font-size:3.4rem;line-height:1;display:block}
-.stats span{font-size:.95rem;opacity:.9}
+  /* wake behind the stern */
+  .wake{position:absolute;left:97%;top:-30%;width:75%;height:160%;z-index:1;pointer-events:none}
+  .wake svg{position:absolute;inset:0;width:100%;height:100%}
+  .kelvin{fill:none;stroke:rgba(255,255,255,.28);stroke-width:3;stroke-dasharray:40 26;animation:dash 2.4s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-132}}
+  .foam{position:absolute;left:0;top:var(--y,50%);width:16%;aspect-ratio:3/1;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.95) 0%,rgba(230,245,255,.55) 40%,rgba(255,255,255,0) 72%);filter:blur(2px);opacity:0;animation:foam 4.5s linear infinite;animation-delay:var(--d,0s)}
+  @keyframes foam{0%{opacity:.95;transform:translate(0,-50%) scale(.6,.8)}100%{opacity:0;transform:translate(520%,-50%) scale(2.6,2)}}
 
-/* SECTIONS */
-section{padding:110px 0}
-.light{background:var(--sand);color:var(--sea)}
-.light .muted{color:#4b6070}
-h2{font-size:clamp(2.4rem,5vw,4rem);max-width:700px;margin-bottom:56px}
-.muted{color:var(--mist)}
+  /* bow wave + hull wash */
+  .bow{position:absolute;left:-4%;top:-12%;width:22%;height:124%;z-index:1;pointer-events:none}
+  .bow path{fill:none;stroke:rgba(255,255,255,.55);stroke-width:4;stroke-linecap:round;animation:bow 1.8s ease-in-out infinite}
+  .bow path:nth-child(2){stroke-width:2.5;opacity:.6;animation-delay:.6s}
+  @keyframes bow{0%,100%{opacity:.35}50%{opacity:.9}}
+  .wash{position:absolute;left:12%;width:88%;height:5%;z-index:1;overflow:hidden;pointer-events:none}
+  .wash.top{top:2%}.wash.bot{bottom:2%}
+  .wash i{position:absolute;top:0;height:100%;width:12%;border-radius:50%;background:rgba(255,255,255,.5);filter:blur(3px);animation:wash 3s linear infinite;animation-delay:var(--d,0s);left:-15%}
+  @keyframes wash{to{left:110%}}
 
-/* SERVICES */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--sea)}
-.svc article{padding:32px 24px 36px 0;border-bottom:2px solid var(--sea);position:relative;transition:padding .3s}
-.svc article::before{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--rust);transition:width .4s}
-.svc article:hover::before{width:100%}
-.svc article:hover{padding-left:12px}
-.svc svg{width:44px;height:44px;stroke:var(--rust);fill:none;stroke-width:1.8;margin-bottom:22px}
-.svc h3{font-size:1.9rem;margin-bottom:10px}
-.svc p{font-size:.95rem}
+  /* text */
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.05) 35%,rgba(0,0,0,.05) 65%,rgba(0,0,0,.35) 100%);pointer-events:none;z-index:3}
+  .brand{position:absolute;top:5vh;left:0;right:0;z-index:4;text-align:center;font-weight:700;letter-spacing:.22em;font-size:clamp(18px,2.6vw,38px);line-height:1.2;text-transform:uppercase;padding:0 16px;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+  .headline{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;text-align:center;padding:12vh 16px 0}
+  .headline h1{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(44px,7.4vw,120px);line-height:1.15;max-width:15ch;text-shadow:0 4px 24px rgba(0,0,0,.45)}
 
-/* PROCESS (true sequence) */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
-.steps::before{content:"";position:absolute;top:21px;left:0;height:2px;width:0;background:var(--rust);transition:width 1.6s ease}
-.steps.in::before{width:100%}
-.steps div{padding-top:56px;position:relative}
-.steps div::before{content:attr(data-n);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--sea);border:2px solid var(--rust);display:grid;place-items:center;font-family:var(--head);font-size:1.3rem}
-.steps h3{font-size:1.6rem;margin-bottom:8px}
-.steps p{color:var(--mist);font-size:.95rem}
+  /* ---------- CONTACT ---------- */
+  .contact{background:#000;padding:90px 20px 110px;text-align:center}
+  .contact h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(40px,5vw,64px);color:#cfcfcf}
+  .rule{width:64px;height:1px;background:#3a3a3a;margin:28px auto 44px}
+  .contact form{max-width:560px;margin:0 auto;display:grid;gap:18px;text-align:left}
+  .contact label{font-size:13px;font-weight:600;color:#9a9a9a;letter-spacing:.04em}
+  .contact input,.contact textarea{width:100%;margin-top:6px;background:transparent;border:0;border-bottom:1px solid #333;color:#fff;font:16px "Montserrat",Arial,sans-serif;padding:10px 2px}
+  .contact textarea{min-height:110px;resize:vertical}
+  .contact input:focus,.contact textarea:focus{outline:none;border-bottom-color:#4fb6b0}
+  .contact button{justify-self:center;margin-top:12px;background:#fff;color:#000;border:0;padding:14px 34px;font:600 15px "Montserrat",Arial,sans-serif;cursor:pointer;transition:background .2s}
+  .contact button:hover{background:#4fb6b0}
+  .contact button:focus-visible,.chat:focus-visible{outline:2px solid #4fb6b0;outline-offset:3px}
+  footer{background:#000;color:#666;text-align:center;font-size:13px;padding:0 20px 40px}
 
-/* CONTACT */
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-form{display:grid;gap:14px}
-label{font-size:.9rem;color:var(--mist)}
-input,select,textarea{width:100%;padding:14px;margin-top:6px;background:var(--deep);border:1.5px solid #1c4a68;color:#fff;font:inherit;border-radius:2px}
-input:focus,select:focus,textarea:focus{border-color:var(--rust);outline:0}
-.ok{display:none;color:#7fe3a5}
-footer{padding:28px 0;border-top:1px solid #1c4a68;color:var(--mist);font-size:.9rem}
+  /* chat bubble */
+  .chat{position:fixed;right:28px;bottom:28px;width:68px;height:68px;border-radius:50%;background:#d9d9d9;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35);z-index:50}
+  .chat svg{width:34px;height:34px}
 
-/* SCROLL REVEAL (used once per block, subtle) */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-.rv.in{opacity:1;transform:none}
-
-@media(max-width:900px){
-  .hero .grid,.contact .grid{grid-template-columns:1fr}
-  .svc,.steps{grid-template-columns:1fr 1fr}
-  .stats .wrap{grid-template-columns:1fr 1fr}
-  .links a:not(.btn){display:none}
-  .steps::before{display:none}
-}
-@media(max-width:560px){.svc,.steps{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .hero h1 span b,.hero p,.hero .cta,.rv{opacity:1;transform:none}
-  .steps::before{width:100%}
-}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="wrap">
-    <a href="#top" class="logo"><i></i>Your Company LLP</a>
-    <div class="links">
-      <a href="#services">Services</a>
-      <a href="#process">How it works</a>
-      <a class="btn" href="#contact">Get a quote</a>
-    </div>
-  </div>
-</nav>
+<section class="hero" aria-label="Oceanbay Shipping and Logistics">
+  <div class="sea"></div>
 
-<header class="hero" id="top">
-  <div class="wrap grid">
-    <div>
-      <h1><span><b>Your cargo.</b></span><span><b>Any port.</b></span><span><b>On time.</b></span></h1>
-      <p>Sea freight, air freight, customs clearance and warehousing, managed by one team from pickup to final delivery.</p>
-      <div class="cta">
-        <a class="btn" href="#contact">Request a quote</a>
-        <a class="btn ghost" href="#services">See our services</a>
+  <div class="ship-wrap" aria-hidden="true">
+    <div class="ship-sway">
+      <!-- wake -->
+      <div class="wake">
+        <svg viewBox="0 0 1000 600" preserveAspectRatio="none">
+          <path class="kelvin" d="M0 230 Q 500 150 1000 20"/>
+          <path class="kelvin" d="M0 370 Q 500 450 1000 580"/>
+        </svg>
+        <span class="foam" style="--y:50%;--d:0s"></span>
+        <span class="foam" style="--y:44%;--d:.8s"></span>
+        <span class="foam" style="--y:56%;--d:1.6s"></span>
+        <span class="foam" style="--y:48%;--d:2.4s"></span>
+        <span class="foam" style="--y:53%;--d:3.2s"></span>
+        <span class="foam" style="--y:46%;--d:4s"></span>
       </div>
-    </div>
+      <!-- bow wave -->
+      <svg class="bow" viewBox="0 0 300 500" preserveAspectRatio="none">
+        <path d="M40 250 Q 120 60 300 20 M40 250 Q 120 440 300 480"/>
+        <path d="M70 250 Q 150 90 300 60 M70 250 Q 150 410 300 440"/>
+      </svg>
+      <div class="wash top"><i style="--d:0s"></i><i style="--d:1s"></i><i style="--d:2s"></i></div>
+      <div class="wash bot"><i style="--d:.5s"></i><i style="--d:1.5s"></i><i style="--d:2.5s"></i></div>
 
-    <svg class="map" viewBox="0 0 520 420" role="img" aria-label="Animated shipping routes between Mumbai, Dubai, Rotterdam and Singapore">
-      <path class="land" d="M30 120 q40-50 110-30 t90 20 q30 40-10 70 t-90 20 q-60 10-100-30z"/>
-      <path class="land" d="M250 80 q60-40 130-10 t90 40 q10 50-40 60 t-110 10 q-60-20-70-100z"/>
-      <path class="land" d="M300 260 q50-30 110 0 t60 60 q-30 50-100 40 t-70-100z"/>
-      <path id="r1" class="route" d="M150 150 C 230 260, 330 280, 400 300"/>
-      <path id="r2" class="route" d="M150 150 C 190 60, 320 40, 360 110"/>
-      <path id="r3" class="route air" d="M360 110 C 420 160, 440 240, 400 300"/>
-      <g>
-        <circle class="pulse" cx="150" cy="150" r="8"/><circle class="port" cx="150" cy="150" r="6"/><text x="104" y="182">Mumbai</text>
-        <circle class="pulse" cx="360" cy="110" r="8"/><circle class="port" cx="360" cy="110" r="6"/><text x="372" y="106">Rotterdam</text>
-        <circle class="pulse" cx="400" cy="300" r="8"/><circle class="port" cx="400" cy="300" r="6"/><text x="352" y="332">Singapore</text>
-      </g>
-      <!-- ships: small container-ship glyphs travelling along routes -->
-      <g fill="#e4572e">
-        <g><rect x="-10" y="-5" width="20" height="8"/><rect x="-6" y="-11" width="5" height="6" fill="#fff"/><rect x="0" y="-11" width="5" height="6"/>
-          <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#r1"/></animateMotion></g>
-        <g><rect x="-10" y="-5" width="20" height="8"/><rect x="-6" y="-11" width="5" height="6"/><rect x="0" y="-11" width="5" height="6" fill="#fff"/>
-          <animateMotion dur="11s" begin="-4s" repeatCount="indefinite" rotate="auto"><mpath href="#r2"/></animateMotion></g>
-        <path d="M-9 0 L9 0 L0 -4z" fill="#fff"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#r3"/></animateMotion></path>
-      </g>
-    </svg>
-  </div>
-</header>
-
-<div class="stats">
-  <div class="wrap">
-    <div><strong data-count="12" data-suffix="+">0</strong><span>Years moving cargo</span></div>
-    <div><strong data-count="45" data-suffix="+">0</strong><span>Countries served</span></div>
-    <div><strong data-count="8500" data-suffix="+">0</strong><span>Containers shipped</span></div>
-    <div><strong data-count="98" data-suffix="%">0</strong><span>On-time deliveries</span></div>
-  </div>
-</div>
-
-<section class="light" id="services">
-  <div class="wrap">
-    <h2 class="rv">Everything your cargo needs, in one place</h2>
-    <div class="svc rv">
-      <article>
-        <svg viewBox="0 0 48 48"><path d="M4 30h40l-6 10H10zM12 30V20h10v10M24 30V14h10v16"/></svg>
-        <h3>Sea freight</h3><p class="muted">FCL and LCL shipments on major global trade lanes, with live container tracking.</p>
-      </article>
-      <article>
-        <svg viewBox="0 0 48 48"><path d="M4 28l16-4L32 8h5l-6 16 12 2v4l-12 0-6 10h-4l2-10-14-2z"/></svg>
-        <h3>Air freight</h3><p class="muted">Fast, time-critical delivery for urgent, high-value and perishable goods.</p>
-      </article>
-      <article>
-        <svg viewBox="0 0 48 48"><path d="M10 6h22l8 8v28H10zM32 6v8h8M18 24h14M18 31h14"/></svg>
-        <h3>Customs clearance</h3><p class="muted">Documentation, duties and compliance handled so your cargo does not sit at the port.</p>
-      </article>
-      <article>
-        <svg viewBox="0 0 48 48"><path d="M4 20L24 6l20 14v22H4zM14 42V28h20v14M14 35h20"/></svg>
-        <h3>Warehousing</h3><p class="muted">Secure storage, inventory handling and last-mile delivery to your customer's door.</p>
-      </article>
+      <!-- ship (top-down, bow on the left) -->
+      <svg class="ship" viewBox="0 0 1600 360">
+        <defs>
+          <pattern id="corr" width="5" height="10" patternUnits="userSpaceOnUse">
+            <rect width="1.4" height="10" fill="rgba(0,0,0,.18)"/>
+          </pattern>
+          <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8b949c"/><stop offset=".5" stop-color="#a4acb3"/><stop offset="1" stop-color="#7c858d"/>
+          </linearGradient>
+        </defs>
+        <!-- hull -->
+        <path d="M14 180 C 60 86 170 22 310 16 L 1505 16 Q 1590 16 1592 72 L 1592 288 Q 1590 344 1505 344 L 310 344 C 170 338 60 274 14 180 Z" fill="#1d2731"/>
+        <path d="M34 180 C 78 98 180 34 312 28 L 1500 28 Q 1578 28 1580 78 L 1580 282 Q 1578 332 1500 332 L 312 332 C 180 326 78 262 34 180 Z" fill="url(#deck)"/>
+        <!-- forecastle details -->
+        <path d="M290 40 L 250 180 L 290 320" fill="none" stroke="#d8dde1" stroke-width="8"/>
+        <g fill="#5c656d" stroke="#e5c43c" stroke-width="2">
+          <circle cx="110" cy="150" r="12"/><circle cx="110" cy="210" r="12"/>
+          <circle cx="170" cy="120" r="14"/><circle cx="170" cy="240" r="14"/>
+          <rect x="200" y="160" width="34" height="40" rx="4"/>
+        </g>
+        <g fill="#2f363c">
+          <circle cx="140" cy="100" r="5"/><circle cx="140" cy="260" r="5"/>
+          <circle cx="220" cy="70" r="5"/><circle cx="220" cy="290" r="5"/>
+        </g>
+        <path d="M70 175 L 160 150 M70 185 L 160 210" stroke="#d9c58a" stroke-width="2"/>
+        <!-- containers (generated) -->
+        <g id="containers" filter="drop-shadow(2px 3px 2px rgba(0,0,0,.35))"></g>
+        <rect x="318" y="36" width="980" height="294" fill="url(#corr)" pointer-events="none"/>
+        <!-- accommodation / bridge -->
+        <rect x="1322" y="12" width="20" height="336" fill="#dfe3e7"/>
+        <rect x="1312" y="34" width="96" height="292" rx="4" fill="#eef1f3"/>
+        <rect x="1312" y="34" width="9" height="292" fill="#2b3a48"/>
+        <rect x="1360" y="60" width="34" height="240" fill="#d4d9de"/>
+        <!-- funnel -->
+        <rect x="1426" y="138" width="54" height="84" rx="8" fill="#1f2328"/>
+        <rect x="1436" y="138" width="10" height="84" fill="#c8423f"/>
+        <!-- stern deck -->
+        <path d="M1500 40 Q 1566 40 1568 82 L 1568 278 Q 1566 320 1500 320 L 1414 320 L 1414 40 Z" fill="#3f8f62"/>
+        <rect x="1440" y="44" width="76" height="22" rx="10" fill="#f06a2a"/>
+        <rect x="1440" y="294" width="76" height="22" rx="10" fill="#f06a2a"/>
+        <g fill="#e9ecef"><rect x="1500" y="120" width="40" height="18"/><rect x="1500" y="222" width="40" height="18"/><rect x="1530" y="164" width="22" height="32"/></g>
+        <g fill="#2f363c"><circle cx="1556" cy="90" r="5"/><circle cx="1556" cy="270" r="5"/></g>
+      </svg>
     </div>
   </div>
+
+  <div class="brand">Oceanbay Shipping and<br>Logistics LLP</div>
+  <div class="headline"><h1>Shipping made simple and reliable</h1></div>
 </section>
 
-<section id="process">
-  <div class="wrap">
-    <h2 class="rv">From booking to delivery in four steps</h2>
-    <div class="steps" id="steps">
-      <div data-n="1"><h3>Request a quote</h3><p>Tell us what you ship, where, and by when.</p></div>
-      <div data-n="2"><h3>Pickup and packing</h3><p>We collect, consolidate and prepare your cargo.</p></div>
-      <div data-n="3"><h3>Transit and customs</h3><p>Track every leg while we clear the paperwork.</p></div>
-      <div data-n="4"><h3>Delivery</h3><p>Cargo reaches the final address with proof of delivery.</p></div>
-    </div>
-  </div>
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <div class="rule"></div>
+  <!-- Replace action="#" with your form endpoint (e.g. Formspree / Google Apps Script URL) -->
+  <form action="#" method="post">
+    <label>Name<input type="text" name="name" required autocomplete="name"></label>
+    <label>Email<input type="email" name="email" required autocomplete="email"></label>
+    <label>Message<textarea name="message" required></textarea></label>
+    <button type="submit">Send message</button>
+  </form>
 </section>
 
-<section class="contact light" id="contact">
-  <div class="wrap grid">
-    <div class="rv">
-      <h2>Tell us what you need to ship</h2>
-      <p class="muted">We reply to every enquiry within one working day with a route, a transit time and a price.</p>
-      <p style="margin-top:28px"><strong>Email:</strong> info@yourcompany.com<br><strong>Phone:</strong> +91 00000 00000<br><strong>Office:</strong> Your address, Mumbai</p>
-    </div>
-    <form id="form" style="color:var(--sea)">
-      <label style="color:#4b6070">Name<input required name="name" autocomplete="name"></label>
-      <label style="color:#4b6070">Email<input required type="email" name="email" autocomplete="email"></label>
-      <label style="color:#4b6070">Service
-        <select name="service"><option>Sea freight</option><option>Air freight</option><option>Customs clearance</option><option>Warehousing</option></select></label>
-      <label style="color:#4b6070">Cargo details<textarea rows="4" name="msg"></textarea></label>
-      <button class="btn" type="submit">Send enquiry</button>
-      <p class="ok" id="ok" style="color:#1d7a43">Enquiry sent. We will reply within one working day.</p>
-    </form>
-  </div>
-</section>
+<footer>© <span id="yr"></span> Oceanbay Shipping and Logistics LLP. All rights reserved.</footer>
 
-<footer><div class="wrap">&copy; <span id="yr"></span> Your Company LLP. All rights reserved.</div></footer>
+<a class="chat" href="#contact" aria-label="Contact us">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>
+</a>
 
 <script>
-document.getElementById('yr').textContent=new Date().getFullYear();
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
-document.querySelectorAll('.rv,#steps').forEach(el=>io.observe(el));
-
-// count-up stats
-const co=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return; co.unobserve(e.target);
-  const t=+e.target.dataset.count,s=e.target.dataset.suffix||'',st=performance.now();
-  (function tick(n){const p=Math.min((n-st)/1600,1);e.target.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString()+s;if(p<1)requestAnimationFrame(tick)})(st);
-}),{threshold:.6});
-document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
-
-// demo form: replace with Formspree / your backend
-document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block';e.target.reset()});
+  // Build container stacks (seeded so the layout is the same on every load)
+  (function () {
+    var NS = 'http://www.w3.org/2000/svg';
+    var g = document.getElementById('containers');
+    var seed = 11;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var colors = ['#c8423f','#e6e8ea','#2f6fb3','#46b8b0','#e8a23a','#d96aa0','#5bb36a','#f4f4f0','#a8323a','#7fc4d8','#e46b3f','#3d4f9c','#c8423f','#e6e8ea'];
+    var x = 320, bayLen = 90, rows = 12, rowH = 22, rowGap = 2.2, y0 = 38;
+    for (var b = 0; b < 10; b++) {
+      var bayColor = colors[Math.floor(rnd() * colors.length)];
+      for (var r = 0; r < rows; r++) {
+        if (rnd() < 0.03) continue; // occasional empty slot
+        var c = rnd() < 0.25 ? bayColor : colors[Math.floor(rnd() * colors.length)];
+        var rect = document.createElementNS(NS, 'rect');
+        rect.setAttribute('x', x);
+        rect.setAttribute('y', (y0 + r * (rowH + rowGap)).toFixed(1));
+        rect.setAttribute('width', bayLen);
+        rect.setAttribute('height', rowH);
+        rect.setAttribute('fill', c);
+        rect.setAttribute('stroke', 'rgba(0,0,0,.35)');
+        rect.setAttribute('stroke-width', '1');
+        g.appendChild(rect);
+      }
+      x += bayLen + (b % 2 === 0 ? 4 : 14);
+    }
+  })();
 </script>
 </body>
 </html>
