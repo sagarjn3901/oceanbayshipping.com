@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Company LLP | Shipping & Logistics</title>
+<meta name="description" content="Sea freight, air freight, customs clearance and warehousing, door to door.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sea:#08202e; --deep:#0d3047; --rust:#e4572e; --sand:#f2ece1; --foam:#ffffff; --mist:#9db4c2;
+  --head:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--sea);color:var(--foam);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1;letter-spacing:.01em}
 
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:20;transition:background .3s,backdrop-filter .3s}
+nav.solid{background:rgba(8,32,46,.85);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--head);font-size:1.6rem;display:flex;align-items:center;gap:10px}
+.logo i{width:22px;height:22px;background:var(--rust);display:inline-block;clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%)}
+.links{display:flex;gap:28px;align-items:center;font-size:.95rem}
+.links a:hover{color:var(--rust)}
+.btn{display:inline-block;background:var(--rust);color:#fff;padding:14px 26px;font-weight:500;border-radius:2px;transition:transform .2s,background .2s;border:0;cursor:pointer;font:inherit;font-weight:500}
+.btn:hover{transform:translateY(-3px);background:#f0683f}
+.btn.ghost{background:transparent;border:1.5px solid var(--mist)}
+.btn.ghost:hover{border-color:var(--rust);background:transparent}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;
+  background:radial-gradient(900px 500px at 80% 30%,#124666 0%,transparent 70%),var(--sea)}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.4rem,9vw,7.4rem);text-transform:uppercase}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span b{display:block;font-weight:700;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2) b{animation-delay:.15s;color:var(--rust)}
+.hero h1 span:nth-child(3) b{animation-delay:.3s}
+@keyframes rise{to{transform:none}}
+.hero p{max-width:460px;color:var(--mist);margin:28px 0 36px;opacity:0;animation:fade .8s .8s forwards}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade .8s 1s forwards}
+@keyframes fade{to{opacity:1}}
+
+/* ROUTE MAP */
+.map{width:100%;height:auto}
+.map .route{fill:none;stroke:var(--mist);stroke-width:1.5;stroke-dasharray:6 8;animation:dash 30s linear infinite}
+.map .route.air{stroke:var(--rust)}
+@keyframes dash{to{stroke-dashoffset:-400}}
+.map .port{fill:var(--foam)}
+.map .pulse{fill:none;stroke:var(--rust);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
+.map .pulse:nth-of-type(2n){animation-delay:.8s}
+@keyframes ping{from{transform:scale(.4);opacity:1}to{transform:scale(3);opacity:0}}
+.map text{fill:var(--mist);font:500 12px var(--body)}
+.map .land{fill:#103a55}
+
+/* STATS */
+.stats{background:var(--rust);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:44px;padding-bottom:44px}
+.stats strong{font-family:var(--head);font-size:3.4rem;line-height:1;display:block}
+.stats span{font-size:.95rem;opacity:.9}
+
+/* SECTIONS */
+section{padding:110px 0}
+.light{background:var(--sand);color:var(--sea)}
+.light .muted{color:#4b6070}
+h2{font-size:clamp(2.4rem,5vw,4rem);max-width:700px;margin-bottom:56px}
+.muted{color:var(--mist)}
+
+/* SERVICES */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--sea)}
+.svc article{padding:32px 24px 36px 0;border-bottom:2px solid var(--sea);position:relative;transition:padding .3s}
+.svc article::before{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--rust);transition:width .4s}
+.svc article:hover::before{width:100%}
+.svc article:hover{padding-left:12px}
+.svc svg{width:44px;height:44px;stroke:var(--rust);fill:none;stroke-width:1.8;margin-bottom:22px}
+.svc h3{font-size:1.9rem;margin-bottom:10px}
+.svc p{font-size:.95rem}
+
+/* PROCESS (true sequence) */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.steps::before{content:"";position:absolute;top:21px;left:0;height:2px;width:0;background:var(--rust);transition:width 1.6s ease}
+.steps.in::before{width:100%}
+.steps div{padding-top:56px;position:relative}
+.steps div::before{content:attr(data-n);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--sea);border:2px solid var(--rust);display:grid;place-items:center;font-family:var(--head);font-size:1.3rem}
+.steps h3{font-size:1.6rem;margin-bottom:8px}
+.steps p{color:var(--mist);font-size:.95rem}
+
+/* CONTACT */
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+form{display:grid;gap:14px}
+label{font-size:.9rem;color:var(--mist)}
+input,select,textarea{width:100%;padding:14px;margin-top:6px;background:var(--deep);border:1.5px solid #1c4a68;color:#fff;font:inherit;border-radius:2px}
+input:focus,select:focus,textarea:focus{border-color:var(--rust);outline:0}
+.ok{display:none;color:#7fe3a5}
+footer{padding:28px 0;border-top:1px solid #1c4a68;color:var(--mist);font-size:.9rem}
+
+/* SCROLL REVEAL (used once per block, subtle) */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero .grid,.contact .grid{grid-template-columns:1fr}
+  .svc,.steps{grid-template-columns:1fr 1fr}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .links a:not(.btn){display:none}
+  .steps::before{display:none}
+}
+@media(max-width:560px){.svc,.steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .hero h1 span b,.hero p,.hero .cta,.rv{opacity:1;transform:none}
+  .steps::before{width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo"><i></i>Your Company LLP</a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a class="btn" href="#contact">Get a quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <h1><span><b>Your cargo.</b></span><span><b>Any port.</b></span><span><b>On time.</b></span></h1>
+      <p>Sea freight, air freight, customs clearance and warehousing, managed by one team from pickup to final delivery.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Request a quote</a>
+        <a class="btn ghost" href="#services">See our services</a>
+      </div>
+    </div>
+
+    <svg class="map" viewBox="0 0 520 420" role="img" aria-label="Animated shipping routes between Mumbai, Dubai, Rotterdam and Singapore">
+      <path class="land" d="M30 120 q40-50 110-30 t90 20 q30 40-10 70 t-90 20 q-60 10-100-30z"/>
+      <path class="land" d="M250 80 q60-40 130-10 t90 40 q10 50-40 60 t-110 10 q-60-20-70-100z"/>
+      <path class="land" d="M300 260 q50-30 110 0 t60 60 q-30 50-100 40 t-70-100z"/>
+      <path id="r1" class="route" d="M150 150 C 230 260, 330 280, 400 300"/>
+      <path id="r2" class="route" d="M150 150 C 190 60, 320 40, 360 110"/>
+      <path id="r3" class="route air" d="M360 110 C 420 160, 440 240, 400 300"/>
+      <g>
+        <circle class="pulse" cx="150" cy="150" r="8"/><circle class="port" cx="150" cy="150" r="6"/><text x="104" y="182">Mumbai</text>
+        <circle class="pulse" cx="360" cy="110" r="8"/><circle class="port" cx="360" cy="110" r="6"/><text x="372" y="106">Rotterdam</text>
+        <circle class="pulse" cx="400" cy="300" r="8"/><circle class="port" cx="400" cy="300" r="6"/><text x="352" y="332">Singapore</text>
+      </g>
+      <!-- ships: small container-ship glyphs travelling along routes -->
+      <g fill="#e4572e">
+        <g><rect x="-10" y="-5" width="20" height="8"/><rect x="-6" y="-11" width="5" height="6" fill="#fff"/><rect x="0" y="-11" width="5" height="6"/>
+          <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#r1"/></animateMotion></g>
+        <g><rect x="-10" y="-5" width="20" height="8"/><rect x="-6" y="-11" width="5" height="6"/><rect x="0" y="-11" width="5" height="6" fill="#fff"/>
+          <animateMotion dur="11s" begin="-4s" repeatCount="indefinite" rotate="auto"><mpath href="#r2"/></animateMotion></g>
+        <path d="M-9 0 L9 0 L0 -4z" fill="#fff"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#r3"/></animateMotion></path>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div><strong data-count="12" data-suffix="+">0</strong><span>Years moving cargo</span></div>
+    <div><strong data-count="45" data-suffix="+">0</strong><span>Countries served</span></div>
+    <div><strong data-count="8500" data-suffix="+">0</strong><span>Containers shipped</span></div>
+    <div><strong data-count="98" data-suffix="%">0</strong><span>On-time deliveries</span></div>
+  </div>
+</div>
+
+<section class="light" id="services">
+  <div class="wrap">
+    <h2 class="rv">Everything your cargo needs, in one place</h2>
+    <div class="svc rv">
+      <article>
+        <svg viewBox="0 0 48 48"><path d="M4 30h40l-6 10H10zM12 30V20h10v10M24 30V14h10v16"/></svg>
+        <h3>Sea freight</h3><p class="muted">FCL and LCL shipments on major global trade lanes, with live container tracking.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48"><path d="M4 28l16-4L32 8h5l-6 16 12 2v4l-12 0-6 10h-4l2-10-14-2z"/></svg>
+        <h3>Air freight</h3><p class="muted">Fast, time-critical delivery for urgent, high-value and perishable goods.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48"><path d="M10 6h22l8 8v28H10zM32 6v8h8M18 24h14M18 31h14"/></svg>
+        <h3>Customs clearance</h3><p class="muted">Documentation, duties and compliance handled so your cargo does not sit at the port.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 48 48"><path d="M4 20L24 6l20 14v22H4zM14 42V28h20v14M14 35h20"/></svg>
+        <h3>Warehousing</h3><p class="muted">Secure storage, inventory handling and last-mile delivery to your customer's door.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <h2 class="rv">From booking to delivery in four steps</h2>
+    <div class="steps" id="steps">
+      <div data-n="1"><h3>Request a quote</h3><p>Tell us what you ship, where, and by when.</p></div>
+      <div data-n="2"><h3>Pickup and packing</h3><p>We collect, consolidate and prepare your cargo.</p></div>
+      <div data-n="3"><h3>Transit and customs</h3><p>Track every leg while we clear the paperwork.</p></div>
+      <div data-n="4"><h3>Delivery</h3><p>Cargo reaches the final address with proof of delivery.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact light" id="contact">
+  <div class="wrap grid">
+    <div class="rv">
+      <h2>Tell us what you need to ship</h2>
+      <p class="muted">We reply to every enquiry within one working day with a route, a transit time and a price.</p>
+      <p style="margin-top:28px"><strong>Email:</strong> info@yourcompany.com<br><strong>Phone:</strong> +91 00000 00000<br><strong>Office:</strong> Your address, Mumbai</p>
+    </div>
+    <form id="form" style="color:var(--sea)">
+      <label style="color:#4b6070">Name<input required name="name" autocomplete="name"></label>
+      <label style="color:#4b6070">Email<input required type="email" name="email" autocomplete="email"></label>
+      <label style="color:#4b6070">Service
+        <select name="service"><option>Sea freight</option><option>Air freight</option><option>Customs clearance</option><option>Warehousing</option></select></label>
+      <label style="color:#4b6070">Cargo details<textarea rows="4" name="msg"></textarea></label>
+      <button class="btn" type="submit">Send enquiry</button>
+      <p class="ok" id="ok" style="color:#1d7a43">Enquiry sent. We will reply within one working day.</p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap">&copy; <span id="yr"></span> Your Company LLP. All rights reserved.</div></footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.rv,#steps').forEach(el=>io.observe(el));
+
+// count-up stats
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return; co.unobserve(e.target);
+  const t=+e.target.dataset.count,s=e.target.dataset.suffix||'',st=performance.now();
+  (function tick(n){const p=Math.min((n-st)/1600,1);e.target.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString()+s;if(p<1)requestAnimationFrame(tick)})(st);
+}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+// demo form: replace with Formspree / your backend
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block';e.target.reset()});
+</script>
+</body>
+</html>
