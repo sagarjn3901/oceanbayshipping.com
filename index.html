@@ -70,6 +70,17 @@
   .chat{position:fixed;right:28px;bottom:28px;width:68px;height:68px;border-radius:50%;background:#d9d9d9;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35);z-index:50}
   .chat svg{width:34px;height:34px}
 
+   /* ---------- MOBILE ---------- */
+  .hero{height:100svh}
+  @media (max-width:700px) and (orientation:portrait){
+    .ship-wrap{width:135svh;top:55%;transform:translate(-50%,-50%) rotate(62deg)}
+    .brand{top:4svh;letter-spacing:.16em}
+    .headline{padding-top:6svh}
+    .chat{width:54px;height:54px;right:18px;bottom:18px}
+    .chat svg{width:26px;height:26px}
+    .contact{padding:70px 20px 100px}
+  }
+
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
 </style>
 </head>
